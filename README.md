@@ -7,7 +7,6 @@
 
 ## Enviroment
 
-
 ### For Database
 * <b>DB_NAME</b> is the database name
 * <b>DB_USERNAME</b> is the database username
