@@ -9,7 +9,9 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
-const EXPIRATE_IN_MONTHS = process.EXPIRATE_IN_MONTHS || 2;
+const EXPIRATE_IN_MONTHS =
+  (process.env.EXPIRATE_IN_MONTHS && Number(process.env.EXPIRATE_IN_MONTHS)) ||
+  2;
 
 const decoratorTry = async (fn) => {
   let res = null,
