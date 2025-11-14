@@ -5,7 +5,8 @@ services:
     volumes:
       - ./:/app/
     environment:
-      - DB_USERNAME=root
+      - DB_USERNAME=${DB_USERNAME}
+    command: sleep infinity
 
   mysql-server:
     env_file: .env
