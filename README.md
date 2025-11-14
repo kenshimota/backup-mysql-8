@@ -29,5 +29,5 @@
 
 ### Cleanup Backup
 
-- _EXPIRATE_IN_MONTHS_ is a number that indicates how many months the backups will be kept. For example, if the value is 3, the backups older than 3 months will be deleted from the S3 bucket.
+- <b>EXPIRATE_IN_MONTHS</b> is a number that indicates how many months the backups will be kept. For example, if the value is 3, the backups older than 3 months will be deleted from the S3 bucket.
 
