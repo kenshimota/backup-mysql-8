@@ -6,6 +6,7 @@ services:
       - ./:/app/
     environment:
       - DB_USERNAME=root
+    command: sleep infinity
 
   mysql-server:
     env_file: .env
