@@ -26,8 +26,8 @@
 - <b>AWS_SECRET_ACCESS_KEY</b> is the
 - <b>AWS_DEFAULT_REGION</b> is the region where is your machine, for example us-east-2
 - <b>AWS_BUCKET</b> is the bucket name in S3, for example mybucket
+- <b>AWS_PREFIX</b> is the bucket prefix in S3, for example myprefix
 
 ### Cleanup Backup
 
-- <b>EXPIRATE_IN_MONTHS</b> is a number that indicates how many months the backups will be kept. For example, if the value is 3, the backups older than 3 months will be deleted from the S3 bucket.
-
+- <b>EXPIRATE*IN_MONTHS* is a number that indicates how many months the backups will be kept. For example, if the value is 3, the backups older than 3 months will be deleted from the S3 bucket.

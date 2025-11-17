@@ -13,6 +13,14 @@ const EXPIRATE_IN_MONTHS =
   (process.env.EXPIRATE_IN_MONTHS && Number(process.env.EXPIRATE_IN_MONTHS)) ||
   2;
 
+const AWS_PREFIX = process.env.AWS_PREFIX || "/";
+
+/**
+ * A helper function to handle async/await with try/catch
+ * @param {Function} fn - The async function to execute
+ * @returns {Promise<Array>} - An array where the first element is the error (if any) and the second is the result
+ */
+
 const decoratorTry = async (fn) => {
   let res = null,
     err = null;
@@ -28,7 +36,7 @@ const decoratorTry = async (fn) => {
  * @returns {Promise<AWS.S3.ObjectList>}
  */
 async function listObjects() {
-  const params = { Bucket: process.env.AWS_BUCKET };
+  const params = { Bucket: process.env.AWS_BUCKET, Prefix: AWS_PREFIX };
   const [err, data] = await decoratorTry(() =>
     s3.listObjectsV2(params).promise(),
   );
@@ -75,7 +83,7 @@ const getOldBackups = async () => {
 
 const deleteBackup = async (Key) => {
   console.log(`Deleting backup: ${Key}`);
-  const params = { Bucket: process.env.AWS_BUCKET, Key };
+  const params = { Bucket: process.env.AWS_BUCKET, Key, Prefix: AWS_PREFIX };
   const [err] = await decoratorTry(() => s3.deleteObject(params).promise());
 
   if (err) {
